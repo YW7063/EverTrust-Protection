@@ -379,7 +379,7 @@ footer { background: #060f1e; padding: 3.5rem 5%; border-top: 1px solid var(--bo
   <p class="sec-sub reveal" style="margin:0 auto 1.4rem">Fill out the form and an advisor will reach out within 24 hours — no cost, no obligation.</p>
   <div class="cbtn-row reveal">
     <a href="tel:+18436333464" class="btn btn-gold">📞 (843) 633-3464</a>
-    <a href="mailto:homebridge.foundation@outlook.com" class="btn btn-outline">✉️ Email Us</a>
+    <a href="/cdn-cgi/l/email-protection#741c1b191116061d1013115a121b011a1015001d1b1a341b0100181b1b1f5a171b19" class="btn btn-outline">✉️ Email Us</a>
     <a href="https://calendly.com/myinsuranceplan2013/30min" target="_blank" class="btn btn-outline">📅 Book a Call</a>
   </div>
 
@@ -475,7 +475,7 @@ footer { background: #060f1e; padding: 3.5rem 5%; border-top: 1px solid var(--bo
       <h5>Contact</h5>
       <ul>
         <li><a href="tel:+18436333464">(843) 633-3464</a></li>
-        <li><a href="mailto:homebridge.foundation@outlook.com">homebridge.foundation@outlook.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#523a3d3f3730203b3635377c343d273c3633263b3d3c123d27263e3d3d397c313d3f"><span class="__cf_email__" data-cfemail="f1999e9c94938398959694df979e849f959085989e9fb19e84859d9e9e9adf929e9c">[email&#160;protected]</span></a></li>
         <li><a href="#contact">Get a Free Quote</a></li>
       </ul>
     </div>
@@ -490,7 +490,7 @@ footer { background: #060f1e; padding: 3.5rem 5%; border-top: 1px solid var(--bo
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Mobile menu
 document.getElementById('ham').addEventListener('click',()=>document.getElementById('mobnav').classList.toggle('open'));
 function closeMob(){document.getElementById('mobnav').classList.remove('open');}
@@ -538,4 +538,23 @@ form.addEventListener('submit',async e=>{
   fd.append('coverage',checked||'Not specified');
 
   try{
- 
+    const r=await fetch('https://formspree.io/f/mzdjvzlo',{
+      method:'POST',
+      headers:{'Accept':'application/json'},
+      body:fd
+    });
+    if(r.ok){
+      form.style.display='none';
+      successbox.style.display='block';
+      successbox.scrollIntoView({behavior:'smooth'});
+    } else throw new Error();
+  }catch{
+    ferr.textContent='Something went wrong. Please call (843) 633-3464 or try again.';
+    ferr.style.display='block';
+    fsub.textContent='Request My Free Quote →';
+    fsub.disabled=false;
+  }
+});
+</script>
+</body>
+</html>

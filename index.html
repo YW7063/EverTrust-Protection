@@ -134,6 +134,8 @@
     .coverage-checkboxes input[type=checkbox]{accent-color:var(--gold);width:15px;height:15px;flex-shrink:0;}
     .coverage-checkboxes label.new-opt{border-color:rgba(14,159,142,.3);}
     .coverage-checkboxes label.new-opt:hover{border-color:var(--teal);background:rgba(14,159,142,.05);}
+    .coverage-checkboxes label.iul-opt{border-color:rgba(201,168,76,.35);background:rgba(201,168,76,.03);}
+    .coverage-checkboxes label.iul-opt:hover{border-color:var(--gold);background:rgba(201,168,76,.08);}
     .form-submit{width:100%;padding:1rem;background:var(--navy);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.95rem;transition:background .2s,transform .15s;margin-top:.5rem;}
     .form-submit:hover{background:#1a3a5c;transform:translateY(-1px);}
     .form-privacy{text-align:center;font-size:.77rem;color:var(--gray);margin-top:.8rem;}
@@ -141,6 +143,11 @@
     .form-success .check{font-size:2.5rem;margin-bottom:.7rem;}
     .form-success h4{font-weight:700;font-size:1.1rem;color:var(--navy);margin-bottom:.4rem;}
     .form-success p{font-size:.88rem;color:var(--gray);}
+    .intake-nudge{background:linear-gradient(135deg,var(--navy) 0%,#1a3a5c 100%);border-radius:12px;padding:1.6rem 2rem;margin-bottom:2rem;border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
+    .intake-nudge-text h4{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;font-weight:700;margin-bottom:.3rem;}
+    .intake-nudge-text p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.5;}
+    .intake-nudge-btn{background:var(--gold);color:var(--navy);padding:.65rem 1.4rem;border-radius:5px;font-weight:700;font-size:.85rem;text-decoration:none;white-space:nowrap;transition:background .2s;}
+    .intake-nudge-btn:hover{background:var(--gold-light);}
     footer{background:var(--navy);color:rgba(255,255,255,.55);padding:4rem 5% 2rem;}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;max-width:1200px;margin:0 auto 3rem;}
     .footer-brand .logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:.8rem;}
@@ -155,7 +162,7 @@
     .footer-legal{display:flex;gap:1.5rem;}
     .footer-legal a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.8rem;transition:color .2s;}
     .footer-legal a:hover{color:var(--gold);}
-    @media(max-width:900px){.hero-grid,.why-grid,.contact-grid{grid-template-columns:1fr;}.new-cards-grid{grid-template-columns:1fr;}.steps{grid-template-columns:repeat(2,1fr);}.testimonials-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:900px){.hero-grid,.why-grid,.contact-grid{grid-template-columns:1fr;}.new-cards-grid{grid-template-columns:1fr;}.steps{grid-template-columns:repeat(2,1fr);}.testimonials-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;}.intake-nudge{flex-direction:column;align-items:flex-start;}}
     @media(max-width:600px){.form-row,.why-features,.coverage-checkboxes{grid-template-columns:1fr;}.steps,.footer-grid{grid-template-columns:1fr;}}
   </style>
 </head>
@@ -167,9 +174,9 @@
     <li><a href="#why">About</a></li>
     <li><a href="#process">How It Works</a></li>
     <li><a href="#testimonials">Reviews</a></li>
-    <li><a href="#contact">Get a Quote</a></li>
+    <li><a href="intake.html">Get a Quote</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get a Quote</a>
+  <a href="intake.html" class="nav-cta">Get a Quote</a>
 </nav>
 
 <section class="hero" id="home">
@@ -179,7 +186,7 @@
       <h1>Your Family Deserves <em>Certainty.</em></h1>
       <p>Life, dental, health, mortgage protection, income replacement, and final expense coverage — tailored to your life and your peace of mind.</p>
       <div class="hero-btns">
-        <a href="#contact" class="btn-primary">Get My Free Quote</a>
+        <a href="intake.html" class="btn-primary">Get My Free Quote</a>
         <a href="#products" class="btn-outline">Explore Coverage →</a>
         <a href="https://calendly.com/myinsuranceplan2013/30min" target="_blank" class="btn-teal">📅 Book a Call</a>
       </div>
@@ -206,10 +213,12 @@
     <p class="section-sub">Every plan is designed to shield what matters most — from growing families to retirement and beyond.</p>
   </div>
   <div class="cards-grid">
-    <div class="card"><div class="card-icon">❤️</div><h3>Life Insurance</h3><ul><li>Term life from 10–30 years</li><li>Whole &amp; universal life options</li><li>Coverage from $50K to $5M+</li><li>Living benefit riders available</li><li>No medical exam up to $1M</li></ul><a href="#contact" class="card-link">Get a Quote →</a></div>
-    <div class="card"><div class="card-icon">🏠</div><h3>Mortgage Protection</h3><ul><li>Matches your loan balance exactly</li><li>Covers death, disability &amp; illness</li><li>Lump-sum or monthly benefit</li><li>Return of premium available</li><li>Fast approval — often same week</li></ul><a href="#contact" class="card-link">Get a Quote →</a></div>
-    <div class="card"><div class="card-icon">💼</div><h3>Income Replacement</h3><ul><li>Up to 70% of monthly income</li><li>Short-term &amp; long-term plans</li><li>Own-occupation definitions</li><li>Benefits up to age 65</li><li>Self-employed friendly options</li></ul><a href="#contact" class="card-link">Get a Quote →</a></div>
-    <div class="card"><div class="card-icon">🕊️</div><h3>Final Expense</h3><ul><li>Coverage from $2,500–$50,000</li><li>Guaranteed acceptance options</li><li>Premiums never increase</li><li>Benefits never decrease</li><li>Immediate payout, no waiting</li></ul><a href="#contact" class="card-link">Get a Quote →</a></div>
+    <div class="card"><div class="card-icon">❤️</div><h3>Life Insurance</h3><ul><li>Term life from 10–30 years</li><li>Whole &amp; universal life options</li><li>Coverage from $50K to $5M+</li><li>Living benefit riders available</li><li>No medical exam up to $1M</li></ul><a href="intake.html" class="card-link">Get a Quote →</a></div>
+    <div class="card"><div class="card-icon">📈</div><h3>IUL — Indexed Universal Life</h3><ul><li>0% floor — never lose to market drops</li><li>Tax-free cash value growth</li><li>Living benefits included</li><li>No contribution limits</li><li>Access funds in retirement tax-free</li></ul><a href="intake.html" class="card-link">Get a Quote →</a></div>
+    <div class="card"><div class="card-icon">🏦</div><h3>Annuities</h3><ul><li>Guaranteed lifetime income</li><li>Principal protected from market loss</li><li>Tax-deferred growth</li><li>Fixed &amp; indexed options available</li><li>Beneficiary payout included</li></ul><a href="intake.html" class="card-link">Get a Quote →</a></div>
+    <div class="card"><div class="card-icon">🏠</div><h3>Mortgage Protection</h3><ul><li>Matches your loan balance exactly</li><li>Covers death, disability &amp; illness</li><li>Lump-sum or monthly benefit</li><li>Return of premium available</li><li>Fast approval — often same week</li></ul><a href="intake.html" class="card-link">Get a Quote →</a></div>
+    <div class="card"><div class="card-icon">💼</div><h3>Income Replacement</h3><ul><li>Up to 70% of monthly income</li><li>Short-term &amp; long-term plans</li><li>Own-occupation definitions</li><li>Benefits up to age 65</li><li>Self-employed friendly options</li></ul><a href="intake.html" class="card-link">Get a Quote →</a></div>
+    <div class="card"><div class="card-icon">🕊️</div><h3>Final Expense</h3><ul><li>Coverage from $2,500–$50,000</li><li>Guaranteed acceptance options</li><li>Premiums never increase</li><li>Benefits never decrease</li><li>Immediate payout, no waiting</li></ul><a href="intake.html" class="card-link">Get a Quote →</a></div>
   </div>
   <div class="new-products-banner">
     <div class="new-banner-header">
@@ -222,14 +231,14 @@
         <h4>Dental Insurance</h4>
         <p>Affordable dental plans for individuals, families, and seniors — including coverage Medicare doesn't provide.</p>
         <ul><li>Preventive, basic &amp; major services</li><li>Individual &amp; family plan options</li><li>Seniors &amp; Medicare gap coverage</li><li>No waiting period plans available</li><li>Orthodontics options for families</li><li>Access to nationwide provider networks</li></ul>
-        <a href="#contact" class="new-card-link">Get a Dental Quote →</a>
+        <a href="intake.html" class="new-card-link">Get a Dental Quote →</a>
       </div>
       <div class="new-card">
         <div class="new-card-icon">🏥</div>
         <h4>Health Insurance</h4>
         <p>Comprehensive health coverage for self-employed, small business owners, gig workers, and families between jobs.</p>
         <ul><li>ACA marketplace &amp; off-market plans</li><li>Short-term health plans available</li><li>Self-employed &amp; gig worker friendly</li><li>Small business group health plans</li><li>Prescription drug coverage included</li><li>Telehealth &amp; preventive care benefits</li></ul>
-        <a href="#contact" class="new-card-link">Get a Health Quote →</a>
+        <a href="intake.html" class="new-card-link">Get a Health Quote →</a>
       </div>
     </div>
   </div>
@@ -247,7 +256,7 @@
         <div class="why-feat"><div class="why-feat-icon">🔍</div><h4>Carrier Shopping</h4><p>We compare 20+ top-rated companies for you.</p></div>
         <div class="why-feat"><div class="why-feat-icon">🤝</div><h4>Lifetime Support</h4><p>We're here long after the policy is signed.</p></div>
       </div>
-      <div style="margin-top:1.5rem"><a href="#contact" class="btn-primary">Talk to an Advisor</a></div>
+      <div style="margin-top:1.5rem"><a href="intake.html" class="btn-primary">Talk to an Advisor</a></div>
     </div>
     <div class="why-visual">
       <div>
@@ -308,7 +317,14 @@
       </div>
     </div>
     <div class="form-card">
-      <div class="form-title">Free Quote Request</div>
+      <div class="intake-nudge">
+        <div class="intake-nudge-text">
+          <h4>Want the most accurate quote?</h4>
+          <p>Our full intake form takes 4 minutes and lets us prepare everything before your call.</p>
+        </div>
+        <a href="intake.html" class="intake-nudge-btn">Start Full Intake →</a>
+      </div>
+      <div class="form-title">Quick Quote Request</div>
       <form id="quoteForm">
         <div class="form-row">
           <div class="form-group"><label>First Name *</label><input type="text" name="firstName" required placeholder="John"/></div>
@@ -330,7 +346,11 @@
         <div class="form-group">
           <label>Coverage Interest *</label>
           <div class="coverage-checkboxes">
+            <label class="iul-opt"><input type="checkbox" name="coverage" value="IUL"/> 📈 IUL (Indexed Universal Life)</label>
+            <label class="iul-opt"><input type="checkbox" name="coverage" value="Annuity"/> 🏦 Annuity</label>
             <label><input type="checkbox" name="coverage" value="Life Insurance"/> ❤️ Life Insurance</label>
+            <label><input type="checkbox" name="coverage" value="Whole Life"/> 🛡 Whole Life</label>
+            <label><input type="checkbox" name="coverage" value="Term Life"/> 📋 Term Life</label>
             <label><input type="checkbox" name="coverage" value="Mortgage Protection"/> 🏠 Mortgage Protection</label>
             <label><input type="checkbox" name="coverage" value="Income Replacement"/> 💼 Income Replacement</label>
             <label><input type="checkbox" name="coverage" value="Final Expense"/> 🕊️ Final Expense</label>
@@ -354,9 +374,16 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand"><div class="logo">EverTrust <span>Protection</span></div><p>Independent insurance advisors helping American families protect what they love. Licensed in all 50 states. Representing 20+ top-rated carriers.</p></div>
-    <div class="footer-col"><h5>Coverage</h5><ul><li><a href="#products">Life Insurance</a></li><li><a href="#products">Mortgage Protection</a></li><li><a href="#products">Income Replacement</a></li><li><a href="#products">Final Expense</a></li><li><a href="#products">Dental Insurance</a></li><li><a href="#products">Health Insurance</a></li></ul></div>
+    <div class="footer-col"><h5>Coverage</h5><ul>
+      <li><a href="intake.html">IUL</a></li>
+      <li><a href="intake.html">Annuities</a></li>
+      <li><a href="#products">Life Insurance</a></li>
+      <li><a href="#products">Mortgage Protection</a></li>
+      <li><a href="#products">Final Expense</a></li>
+      <li><a href="#products">Dental &amp; Health</a></li>
+    </ul></div>
     <div class="footer-col"><h5>Company</h5><ul><li><a href="#why">About Us</a></li><li><a href="#process">How It Works</a></li><li><a href="#testimonials">Client Stories</a></li><li><a href="#contact">Contact</a></li></ul></div>
-    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+18436333464">(843) 633-3464</a></li><li><a href="https://calendly.com/myinsuranceplan2013/30min" target="_blank">Book a Call</a></li><li><a href="#contact">Get a Free Quote</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+18436333464">(843) 633-3464</a></li><li><a href="https://calendly.com/myinsuranceplan2013/30min" target="_blank">Book a Call</a></li><li><a href="intake.html">Get a Free Quote</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 EverTrust Protection. All rights reserved.</p>

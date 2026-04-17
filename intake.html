@@ -1064,7 +1064,7 @@ async function submitForm() {
   });
 
   try {
-    const res = await fetch('https://formspree.io/f/mzdjvzlo', {
+    const res = await fetch('https://formspree.io/f/mzdjvzlo', { method:'POST', body:data, headers:{'Accept':'application/json'} });  // Send to GHL const ghlData = Object.fromEntries(data.entries()); ghlData.source = 'EverTrust Landing Page'; fetch('https://services.leadconnectorhq.com/hooks/1kNl0a3LeezFrr6iATDH/webhook-trigger/60a91d3f-76c5-4343-a1fb-54021faf3c51', {   method:'POST', headers:{'Content-Type':'application/json'},   body:JSON.stringify(ghlData), mode:'no-cors' });
       method: 'POST',
       body: body,
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' }

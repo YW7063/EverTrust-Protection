@@ -401,7 +401,7 @@
     data.delete('coverage');
     data.append('coverage', coverages.join(', ') || 'Not specified');
     try {
-      const res = await fetch('https://formspree.io/f/mzdjvzlo', { method:'POST', body:data, headers:{'Accept':'application/json'} });  // Send to GHL const ghlData = Object.fromEntries(data.entries()); ghlData.source = 'EverTrust Landing Page'; fetch('https://services.leadconnectorhq.com/hooks/1kNl0a3LeezFrr6iATDH/webhook-trigger/60a91d3f-76c5-4343-a1fb-54021faf3c51', {   method:'POST', headers:{'Content-Type':'application/json'},   body:JSON.stringify(ghlData), mode:'no-cors' });
+      const res = await fetch('https://formspree.io/f/mzdjvzlo', { method:'POST', body:data, headers:{'Accept':'application/json'} });  // Send to GHL const ghlData = Object.fromEntries(data.entries()); ghlData.source = 'EverTrust Landing Page'; fetch('https://services.leadconnectorhq.com/hooks/1kNl0a3LeezFrr6iATDH/webhook-trigger/76c95cd2-7e87-42f8-9fff-7b2eb3167180', {   method:'POST', headers:{'Content-Type':'application/json'},   body:JSON.stringify(ghlData), mode:'no-cors' });
       if (res.ok) { form.style.display='none'; success.style.display='block'; }
       else { alert('Something went wrong. Please try again or call us directly.'); }
     } catch { alert('Network error. Please call us at (843) 633-3464.'); }

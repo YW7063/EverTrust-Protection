@@ -982,6 +982,7 @@
 </div>
 
 <script>
+<script>
 let current = 0;
 
 function goTo(step) {
@@ -1010,24 +1011,37 @@ async function submitForm() {
   btn.disabled = true;
   btn.textContent = 'Sending...';
 
-  function val(id) {
-    const el = document.getElementById(id);
-    return el ? el.value : '';
-  }
-  function radioVal(name) {
-    const el = document.querySelector(`input[name="${name}"]:checked`);
-    return el ? el.value : 'Not answered';
-  }
-  function checkVals(name) {
-    return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(e => e.value).join(', ') || 'None selected';
-  }
-  function textareaVal(placeholder) {
-    const el = [...document.querySelectorAll('textarea')].find(t => t.placeholder.includes(placeholder));
-    return el ? el.value : '';
-  }
+  function val(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+  function radioVal(name) { const el = document.querySelector(`input[name="${name}"]:checked`); return el ? el.value : 'Not answered'; }
 
   const conditions = [...document.querySelectorAll('input[name="conditions"]:checked')].map(e => e.value).join(', ') || 'None';
   const coverageInterest = [...document.querySelectorAll('input[id^="pi_"]:checked')].map(e => e.value).join(', ') || 'Not specified';
+
+  // Send to GHL
+  fetch('https://services.leadconnectorhq.com/hooks/1kNl0a3LeezFrr6iATDH/webhook-trigger/76c95cd2-7e87-42f8-9fff-7b2eb3167180', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      firstName: val('fname'),
+      lastName: val('lname'),
+      phone: val('phone'),
+      email: val('email'),
+      state: val('state'),
+      zip: val('zip'),
+      dob: val('dob'),
+      gender: val('gender'),
+      income: radioVal('income'),
+      goal: radioVal('goal'),
+      budget: radioVal('budget'),
+      timeline: radioVal('timeline'),
+      conditions: conditions,
+      coverage: coverageInterest,
+      tobacco: radioVal('tobacco'),
+      health: radioVal('health'),
+      source: 'EverTrust Intake Form'
+    }),
+    mode: 'no-cors'
+  });
 
   const body = new URLSearchParams({
     _subject: `New Quote Request — ${val('fname')} ${val('lname')}`,
@@ -1038,33 +1052,18 @@ async function submitForm() {
     'Email': val('email'),
     'State': val('state'),
     'ZIP': val('zip'),
-    'Marital Status': val('marital'),
-    'Dependents': val('dependents'),
-    'Applying For': radioVal('applyfor'),
-    'Height': val('height'),
-    'Weight (lbs)': val('weight'),
     'Tobacco Use': radioVal('tobacco'),
     'Medical Conditions': conditions,
-    'Current Medications': radioVal('meds'),
-    'Medication List': textareaVal('Metformin'),
-    'Surgeries / Hospitalizations': radioVal('surgery'),
-    'Surgery Details': textareaVal('knee replacement'),
     'Self-Rated Health': radioVal('health'),
     'Annual Income': radioVal('income'),
-    'Employment Status': radioVal('employ'),
-    'Has Life Insurance': radioVal('haslife'),
-    'Has 401k / Retirement': radioVal('has401k'),
-    'Has Mortgage': radioVal('hasmort'),
     'Primary Goal': radioVal('goal'),
     'Products Interested In': coverageInterest,
     'Monthly Budget': radioVal('budget'),
     'Timeline': radioVal('timeline'),
-    'How They Found Us': radioVal('source'),
-    'Additional Notes': textareaVal('Questions'),
   });
 
   try {
-    const res = await fetch('https://formspree.io/f/mzdjvzlo', { method:'POST', body:data, headers:{'Accept':'application/json'} });  // Send to GHL const ghlData = Object.fromEntries(data.entries()); ghlData.source = 'EverTrust Landing Page'; fetch('https://services.leadconnectorhq.com/hooks/1kNl0a3LeezFrr6iATDH/webhook-trigger/76c95cd2-7e87-42f8-9fff-7b2eb3167180', {   method:'POST', headers:{'Content-Type':'application/json'},   body:JSON.stringify(ghlData), mode:'no-cors' });
+    const res = await fetch('https://formspree.io/f/mzdjvzlo', {
       method: 'POST',
       body: body,
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' }

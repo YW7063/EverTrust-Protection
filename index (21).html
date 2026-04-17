@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EverTrust Protection Insurance | Life, Dental, Health & More</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:#0a1628;--gold:#c9a84c;--gold-light:#e8c96a;--cream:#f8f4ec;
+      --white:#fff;--gray:#8a94a6;--light-bg:#f4f6fa;
+      --teal:#0e9f8e;--teal-light:#12bba8;--shadow:0 4px 24px rgba(10,22,40,.10);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--navy);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,.97);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px;border-bottom:1px solid rgba(201,168,76,.18);}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;}.nav-logo span{color:var(--gold);}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s;}
+    .nav-links a:hover{color:var(--gold);}
+    .nav-cta{background:var(--gold);color:var(--navy);padding:.5rem 1.3rem;border-radius:4px;font-weight:600;font-size:.88rem;text-decoration:none;}
+    .nav-cta:hover{background:var(--gold-light);}
+    @media(max-width:900px){.nav-links{display:none;}}
+    .hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%,rgba(201,168,76,.08) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(14,159,142,.07) 0%,transparent 60%);}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;}
+    .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);color:var(--gold);padding:.4rem 1rem;border-radius:100px;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.5rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;line-height:1.1;color:#fff;margin-bottom:1.2rem;}
+    .hero h1 em{font-style:italic;color:var(--gold);}
+    .hero p{color:rgba(255,255,255,.65);font-size:1.05rem;line-height:1.75;max-width:480px;margin-bottom:2rem;}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+    .btn-primary{background:var(--gold);color:var(--navy);padding:.85rem 2rem;border-radius:5px;font-weight:700;font-size:.95rem;text-decoration:none;transition:background .2s,transform .15s;display:inline-block;}
+    .btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);}
+    .btn-outline{border:1.5px solid rgba(255,255,255,.3);color:#fff;padding:.85rem 2rem;border-radius:5px;font-weight:500;font-size:.95rem;text-decoration:none;display:inline-block;transition:border-color .2s,color .2s;}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+    .btn-teal{background:var(--teal);color:#fff;padding:.85rem 2rem;border-radius:5px;font-weight:600;font-size:.95rem;text-decoration:none;display:inline-block;transition:background .2s;}
+    .btn-teal:hover{background:var(--teal-light);}
+    .hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+    .stat-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.3rem 1.5rem;}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--gold);}
+    .stat-label{font-size:.8rem;color:rgba(255,255,255,.5);margin-top:.2rem;}
+    .trust-strip{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem;}
+    .trust-pill{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.65);padding:.35rem .85rem;border-radius:100px;font-size:.78rem;font-weight:500;}
+    section{padding:90px 5%;}
+    .section-label{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;line-height:1.2;margin-bottom:1rem;}
+    .section-title em{font-style:italic;color:var(--gold);}
+    .section-sub{color:var(--gray);font-size:1rem;line-height:1.7;max-width:580px;}
+    .section-header{text-align:center;margin-bottom:3.5rem;}
+    .section-header .section-sub{margin:0 auto;}
+    #products{background:var(--light-bg);}
+    .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;max-width:1200px;margin:0 auto 2.5rem;}
+    .card{background:#fff;border-radius:14px;padding:2rem;box-shadow:var(--shadow);border:1px solid rgba(10,22,40,.06);transition:transform .2s,box-shadow .2s;}
+    .card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(10,22,40,.14);}
+    .card-icon{font-size:2rem;margin-bottom:1rem;}
+    .card h3{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;margin-bottom:.75rem;}
+    .card ul{list-style:none;margin-bottom:1.4rem;}
+    .card ul li{font-size:.87rem;color:var(--gray);padding:.3rem 0 .3rem 1.2rem;position:relative;line-height:1.5;}
+    .card ul li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700;}
+    .card-link{display:inline-block;font-size:.87rem;font-weight:600;color:var(--navy);text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:1px;transition:color .2s;}
+    .card-link:hover{color:var(--gold);}
+    .new-products-banner{max-width:1200px;margin:0 auto;background:linear-gradient(135deg,var(--navy) 0%,#1a3a5c 100%);border-radius:18px;padding:2.2rem 2.5rem 2.5rem;border:1px solid rgba(201,168,76,.2);position:relative;overflow:hidden;}
+    .new-products-banner::before{content:'';position:absolute;top:-60px;right:-60px;width:250px;height:250px;background:radial-gradient(circle,rgba(14,159,142,.15) 0%,transparent 70%);border-radius:50%;}
+    .new-banner-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;flex-wrap:wrap;}
+    .new-badge{background:var(--teal);color:#fff;padding:.3rem .9rem;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;}
+    .new-banner-header h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;font-weight:700;}
+    .new-banner-header h3 em{font-style:italic;color:var(--teal-light);}
+    .new-cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;position:relative;z-index:1;}
+    .new-card{background:rgba(255,255,255,.06);border:1px solid rgba(14,159,142,.3);border-radius:14px;padding:1.8rem;transition:background .2s,border-color .2s,transform .2s;}
+    .new-card:hover{background:rgba(255,255,255,.09);border-color:var(--teal);transform:translateY(-3px);}
+    .new-card-icon{font-size:2rem;margin-bottom:.9rem;}
+    .new-card h4{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;font-weight:700;margin-bottom:.6rem;}
+    .new-card p{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:1rem;}
+    .new-card ul{list-style:none;margin-bottom:1.4rem;}
+    .new-card ul li{font-size:.85rem;color:rgba(255,255,255,.7);padding:.28rem 0 .28rem 1.2rem;position:relative;line-height:1.5;}
+    .new-card ul li::before{content:'✓';position:absolute;left:0;color:var(--teal-light);font-weight:700;}
+    .new-card-link{display:inline-block;font-size:.87rem;font-weight:600;color:var(--teal-light);text-decoration:none;border-bottom:1.5px solid var(--teal);padding-bottom:1px;transition:color .2s;}
+    .new-card-link:hover{color:#fff;border-color:#fff;}
+    #why{background:#fff;}
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto;}
+    .why-features{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;}
+    .why-feat{padding:1.5rem;border:1px solid rgba(10,22,40,.08);border-radius:12px;}
+    .why-feat-icon{font-size:1.5rem;margin-bottom:.6rem;}
+    .why-feat h4{font-weight:700;font-size:.95rem;margin-bottom:.4rem;}
+    .why-feat p{font-size:.85rem;color:var(--gray);line-height:1.6;}
+    .why-visual{background:var(--navy);border-radius:18px;padding:2.5rem;color:#fff;display:flex;flex-direction:column;gap:1.4rem;}
+    .why-visual-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:.5rem;}
+    .why-visual-title em{font-style:italic;color:var(--gold);}
+    .carrier-row{display:flex;flex-wrap:wrap;gap:.6rem;}
+    .carrier-pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7);padding:.4rem .9rem;border-radius:6px;font-size:.8rem;font-weight:500;}
+    .why-divider{height:1px;background:rgba(255,255,255,.08);}
+    .why-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+    .why-mini-stat .num{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold);font-weight:900;}
+    .why-mini-stat .lbl{font-size:.75rem;color:rgba(255,255,255,.45);margin-top:.2rem;}
+    #process{background:var(--cream);}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:1100px;margin:0 auto;}
+    .step{text-align:center;padding:2rem 1.2rem;}
+    .step-num{width:52px;height:52px;border-radius:50%;background:var(--navy);color:var(--gold);font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;}
+    .step h4{font-weight:700;font-size:1rem;margin-bottom:.5rem;}
+    .step p{font-size:.87rem;color:var(--gray);line-height:1.65;}
+    #testimonials{background:var(--navy);}
+    #testimonials .section-title{color:#fff;}
+    .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto;}
+    .testi-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:2rem;}
+    .testi-quote{font-size:.92rem;color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:1.5rem;font-style:italic;}
+    .testi-author{display:flex;align-items:center;gap:.8rem;}
+    .testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+    .testi-name{font-weight:700;font-size:.9rem;color:#fff;}
+    .testi-role{font-size:.78rem;color:rgba(255,255,255,.4);margin-top:.1rem;}
+    #contact{background:var(--light-bg);}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;max-width:1100px;margin:0 auto;align-items:start;}
+    .contact-info h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;margin-bottom:.8rem;line-height:1.2;}
+    .contact-info h2 em{font-style:italic;color:var(--gold);}
+    .contact-info p{color:var(--gray);font-size:.95rem;line-height:1.7;margin-bottom:2rem;}
+    .contact-details{display:flex;flex-direction:column;gap:1rem;}
+    .contact-item{display:flex;align-items:center;gap:.85rem;}
+    .contact-icon{width:40px;height:40px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+    .contact-text a{color:var(--navy);text-decoration:none;font-weight:600;font-size:.92rem;}
+    .contact-text a:hover{color:var(--gold);}
+    .contact-text span{display:block;font-size:.75rem;color:var(--gray);margin-top:.1rem;}
+    .form-card{background:#fff;border-radius:16px;padding:2.5rem;box-shadow:var(--shadow);}
+    .form-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:1.5rem;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    .form-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem;}
+    .form-group label{font-size:.82rem;font-weight:600;color:var(--navy);}
+    .form-group input,.form-group select,.form-group textarea{border:1.5px solid rgba(10,22,40,.12);border-radius:7px;padding:.7rem .95rem;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--navy);transition:border-color .2s;outline:none;background:#fff;}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+    .form-group textarea{resize:vertical;min-height:90px;}
+    .coverage-checkboxes{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;}
+    .coverage-checkboxes label{display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:500;cursor:pointer;padding:.5rem .7rem;border:1.5px solid rgba(10,22,40,.1);border-radius:7px;transition:border-color .2s,background .2s;}
+    .coverage-checkboxes label:hover{border-color:var(--gold);background:rgba(201,168,76,.04);}
+    .coverage-checkboxes input[type=checkbox]{accent-color:var(--gold);width:15px;height:15px;flex-shrink:0;}
+    .coverage-checkboxes label.new-opt{border-color:rgba(14,159,142,.3);}
+    .coverage-checkboxes label.new-opt:hover{border-color:var(--teal);background:rgba(14,159,142,.05);}
+    .coverage-checkboxes label.iul-opt{border-color:rgba(201,168,76,.35);background:rgba(201,168,76,.03);}
+    .coverage-checkboxes label.iul-opt:hover{border-color:var(--gold);background:rgba(201,168,76,.08);}
+    .form-submit{width:100%;padding:1rem;background:var(--navy);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.95rem;transition:background .2s,transform .15s;margin-top:.5rem;}
+    .form-submit:hover{background:#1a3a5c;transform:translateY(-1px);}
+    .form-privacy{text-align:center;font-size:.77rem;color:var(--gray);margin-top:.8rem;}
+    .form-success{display:none;text-align:center;padding:2.5rem 2rem;background:rgba(14,159,142,.08);border:1.5px solid rgba(14,159,142,.3);border-radius:12px;}
+    .form-success .check{font-size:2.5rem;margin-bottom:.7rem;}
+    .form-success h4{font-weight:700;font-size:1.1rem;color:var(--navy);margin-bottom:.4rem;}
+    .form-success p{font-size:.88rem;color:var(--gray);}
+    .intake-nudge{background:linear-gradient(135deg,var(--navy) 0%,#1a3a5c 100%);border-radius:12px;padding:1.6rem 2rem;margin-bottom:2rem;border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
+    .intake-nudge-text h4{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;font-weight:700;margin-bottom:.3rem;}
+    .intake-nudge-text p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.5;}
+    .intake-nudge-btn{background:var(--gold);color:var(--navy);padding:.65rem 1.4rem;border-radius:5px;font-weight:700;font-size:.85rem;text-decoration:none;white-space:nowrap;transition:background .2s;}
+    .intake-nudge-btn:hover{background:var(--gold-light);}
+    footer{background:var(--navy);color:rgba(255,255,255,.55);padding:4rem 5% 2rem;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;max-width:1200px;margin:0 auto 3rem;}
+    .footer-brand .logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:.8rem;}
+    .footer-brand .logo span{color:var(--gold);}
+    .footer-brand p{font-size:.85rem;line-height:1.7;max-width:280px;}
+    .footer-col h5{color:#fff;font-weight:700;font-size:.88rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1rem;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+    .footer-col ul a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.87rem;transition:color .2s;}
+    .footer-col ul a:hover{color:var(--gold);}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+    .footer-bottom p{font-size:.8rem;}
+    .footer-legal{display:flex;gap:1.5rem;}
+    .footer-legal a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.8rem;transition:color .2s;}
+    .footer-legal a:hover{color:var(--gold);}
+    @media(max-width:900px){.hero-grid,.why-grid,.contact-grid{grid-template-columns:1fr;}.new-cards-grid{grid-template-columns:1fr;}.steps{grid-template-columns:repeat(2,1fr);}.testimonials-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;}.intake-nudge{flex-direction:column;align-items:flex-start;}}
+    @media(max-width:600px){.form-row,.why-features,.coverage-checkboxes{grid-template-columns:1fr;}.steps,.footer-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">EverTrust <span>Protection</span></div>
+  <ul class="nav-links">
+    <li><a href="#products">Coverage</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="intake.html">Get a Quote</a></li>
+  </ul>
+  <a href="intake.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-badge">🛡 Trusted · Licensed All 50 States</div>
+      <h1>Your Family Deserves <em>Certainty.</em></h1>
+      <p>Life, dental, health, mortgage protection, income replacement, and final expense coverage — tailored to your life and your peace of mind.</p>
+      <div class="hero-btns">
+        <a href="intake.html" class="btn-primary">Get My Free Quote</a>
+        <a href="#products" class="btn-outline">Explore Coverage →</a>
+        <a href="https://calendly.com/myinsuranceplan2013/30min" target="_blank" class="btn-teal">📅 Book a Call</a>
+      </div>
+      <div class="trust-strip">
+        <span class="trust-pill">⚡ Same-Day Approval</span>
+        <span class="trust-pill">🔒 No Medical Exam Options</span>
+        <span class="trust-pill">📞 24/7 Claims Support</span>
+        <span class="trust-pill">🅰 A+ AM Best Rated</span>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card"><div class="stat-num">18K+</div><div class="stat-label">Families Protected</div></div>
+      <div class="stat-card"><div class="stat-num">$2B+</div><div class="stat-label">Coverage Written</div></div>
+      <div class="stat-card"><div class="stat-num">97%</div><div class="stat-label">Claims Paid</div></div>
+      <div class="stat-card"><div class="stat-num">20+</div><div class="stat-label">Carrier Partners</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="section-header">
+    <div class="section-label">Our Coverage Plans</div>
+    <h2 class="section-title">Protection Built <em>Around You</em></h2>
+    <p class="section-sub">Every plan is designed to shield what matters most — from growing families to retirement and beyond.</p>
+  </div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-icon">❤️</div><h3>Life Insurance</h3><ul><li>Term life from 10–30 years</li><li>Whole &amp; universal life options</li><li>Coverage from $50K to $5M+</li><li>Living benefit riders available</li><li>No medical exam up to $1M</li></ul><a href="intake.html" class="card-link">Get a Quote →</a></div>
+    <div class="card"><div class="card-icon">📈</div><h3>IUL — Indexed Universal Life</h3><ul><li>0% floor — never lose to market drops</li><li>Tax-free cash value growth</li><li>Living benefits included</li><li>No contribution limits</li><li>Access funds in retirement tax-free</li></ul><a href="intake.html" class="card-link">Get a Quote →</a></div>
+    <div class="card"><div class="card-icon">🏦</div><h3>Annuities</h3><ul><li>Guaranteed lifetime income</li><li>Principal protected from market loss</li><li>Tax-deferred growth</li><li>Fixed &amp; indexed options available</li><li>Beneficiary payout included</li></ul><a href="intake.html" class="card-link">Get a Quote →</a></div>
+    <div class="card"><div class="card-icon">🏠</div><h3>Mortgage Protection</h3><ul><li>Matches your loan balance exactly</li><li>Covers death, disability &amp; illness</li><li>Lump-sum or monthly benefit</li><li>Return of premium available</li><li>Fast approval — often same week</li></ul><a href="intake.html" class="card-link">Get a Quote →</a></div>
+    <div class="card"><div class="card-icon">💼</div><h3>Income Replacement</h3><ul><li>Up to 70% of monthly income</li><li>Short-term &amp; long-term plans</li><li>Own-occupation definitions</li><li>Benefits up to age 65</li><li>Self-employed friendly options</li></ul><a href="intake.html" class="card-link">Get a Quote →</a></div>
+    <div class="card"><div class="card-icon">🕊️</div><h3>Final Expense</h3><ul><li>Coverage from $2,500–$50,000</li><li>Guaranteed acceptance options</li><li>Premiums never increase</li><li>Benefits never decrease</li><li>Immediate payout, no waiting</li></ul><a href="intake.html" class="card-link">Get a Quote →</a></div>
+  </div>
+  <div class="new-products-banner">
+    <div class="new-banner-header">
+      <span class="new-badge">Now Available</span>
+      <h3>Expanding Our Coverage — <em>Dental &amp; Health Insurance</em></h3>
+    </div>
+    <div class="new-cards-grid">
+      <div class="new-card">
+        <div class="new-card-icon">🦷</div>
+        <h4>Dental Insurance</h4>
+        <p>Affordable dental plans for individuals, families, and seniors — including coverage Medicare doesn't provide.</p>
+        <ul><li>Preventive, basic &amp; major services</li><li>Individual &amp; family plan options</li><li>Seniors &amp; Medicare gap coverage</li><li>No waiting period plans available</li><li>Orthodontics options for families</li><li>Access to nationwide provider networks</li></ul>
+        <a href="intake.html" class="new-card-link">Get a Dental Quote →</a>
+      </div>
+      <div class="new-card">
+        <div class="new-card-icon">🏥</div>
+        <h4>Health Insurance</h4>
+        <p>Comprehensive health coverage for self-employed, small business owners, gig workers, and families between jobs.</p>
+        <ul><li>ACA marketplace &amp; off-market plans</li><li>Short-term health plans available</li><li>Self-employed &amp; gig worker friendly</li><li>Small business group health plans</li><li>Prescription drug coverage included</li><li>Telehealth &amp; preventive care benefits</li></ul>
+        <a href="intake.html" class="new-card-link">Get a Health Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="why-grid">
+    <div>
+      <div class="section-label">Why EverTrust Protection</div>
+      <h2 class="section-title">We Don't Sell Policies.<br>We Build <em>Trust.</em></h2>
+      <p class="section-sub">Unlike captive agents tied to one company, we shop dozens of top-rated carriers to find coverage that genuinely fits your life — not our commission structure.</p>
+      <div class="why-features">
+        <div class="why-feat"><div class="why-feat-icon">🎯</div><h4>Independent Agents</h4><p>We represent you, not any single carrier.</p></div>
+        <div class="why-feat"><div class="why-feat-icon">⚡</div><h4>Fast Approvals</h4><p>Many clients approved within 24–48 hours.</p></div>
+        <div class="why-feat"><div class="why-feat-icon">🔍</div><h4>Carrier Shopping</h4><p>We compare 20+ top-rated companies for you.</p></div>
+        <div class="why-feat"><div class="why-feat-icon">🤝</div><h4>Lifetime Support</h4><p>We're here long after the policy is signed.</p></div>
+      </div>
+      <div style="margin-top:1.5rem"><a href="intake.html" class="btn-primary">Talk to an Advisor</a></div>
+    </div>
+    <div class="why-visual">
+      <div>
+        <div class="why-visual-title">Our <em>Carrier Partners</em></div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.45);margin-bottom:1rem">Comparing 20+ top-rated insurers so you get the best rate.</p>
+        <div class="carrier-row">
+          <span class="carrier-pill">Aetna</span><span class="carrier-pill">Cigna</span><span class="carrier-pill">Mutual of Omaha</span>
+          <span class="carrier-pill">Transamerica</span><span class="carrier-pill">Prudential</span><span class="carrier-pill">Lincoln</span>
+          <span class="carrier-pill">Humana</span><span class="carrier-pill">UnitedHealth</span><span class="carrier-pill">AIG</span>
+          <span class="carrier-pill">Protective</span><span class="carrier-pill">+ Many More</span>
+        </div>
+      </div>
+      <div class="why-divider"></div>
+      <div class="why-stat-row">
+        <div class="why-mini-stat"><div class="num">18K+</div><div class="lbl">Families Served</div></div>
+        <div class="why-mini-stat"><div class="num">97%</div><div class="lbl">Claims Paid</div></div>
+        <div class="why-mini-stat"><div class="num">50</div><div class="lbl">States Licensed</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="section-header">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Coverage in Four <em>Simple Steps</em></h2>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="step-num">01</div><h4>Free Consultation</h4><p>Tell us about your family, finances, and goals. No pressure, no obligation.</p></div>
+    <div class="step"><div class="step-num">02</div><h4>Personalized Quotes</h4><p>We shop multiple carriers and present clear options with no hidden fees.</p></div>
+    <div class="step"><div class="step-num">03</div><h4>Easy Application</h4><p>Apply online or by phone. Many plans require no medical exam at all.</p></div>
+    <div class="step"><div class="step-num">04</div><h4>Full Protection</h4><p>Get your policy and rest easy. We follow up every year to keep you covered.</p></div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="section-header">
+    <div class="section-label">Client Stories</div>
+    <h2 class="section-title">Real Families, Real <em>Peace of Mind</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card"><p class="testi-quote">"After my husband's diagnosis, I panicked about the mortgage. Our advisor had us set up with mortgage protection within a week. That policy saved our home — literally."</p><div class="testi-author"><div class="testi-avatar">👩</div><div><div class="testi-name">Maria T.</div><div class="testi-role">Homeowner, Florida</div></div></div></div>
+    <div class="testi-card"><p class="testi-quote">"I'm self-employed and always worried about what would happen if I got injured. The income replacement plan gives me real confidence to keep building my business."</p><div class="testi-author"><div class="testi-avatar">👨</div><div><div class="testi-name">Derek S.</div><div class="testi-role">Small Business Owner, Texas</div></div></div></div>
+    <div class="testi-card"><p class="testi-quote">"My mom's final expense plan covered everything when she passed. Our family could focus on grieving together instead of scrambling for money. Worth every penny."</p><div class="testi-author"><div class="testi-avatar">👩‍🦱</div><div><div class="testi-name">Renee K.</div><div class="testi-role">Client's Daughter, Georgia</div></div></div></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-label">Get In Touch</div>
+      <h2>Start Protecting What Matters <em>Today.</em></h2>
+      <p>Fill out the form and an advisor will reach out within 24 hours — no cost, no obligation.</p>
+      <div class="contact-details">
+        <div class="contact-item"><div class="contact-icon">📞</div><div class="contact-text"><a href="tel:+18436333464">(843) 633-3464</a><span>Call or text anytime</span></div></div>
+        <div class="contact-item"><div class="contact-icon">📅</div><div class="contact-text"><a href="https://calendly.com/myinsuranceplan2013/30min" target="_blank">Book a 30-min Call</a><span>Schedule on Calendly</span></div></div>
+        <div class="contact-item"><div class="contact-icon">🛡</div><div class="contact-text"><a href="#">Licensed in All 50 States</a><span>Independent &amp; unbiased advisors</span></div></div>
+      </div>
+    </div>
+    <div class="form-card">
+      <div class="intake-nudge">
+        <div class="intake-nudge-text">
+          <h4>Want the most accurate quote?</h4>
+          <p>Our full intake form takes 4 minutes and lets us prepare everything before your call.</p>
+        </div>
+        <a href="intake.html" class="intake-nudge-btn">Start Full Intake →</a>
+      </div>
+      <div class="form-title">Quick Quote Request</div>
+      <form id="quoteForm">
+        <div class="form-row">
+          <div class="form-group"><label>First Name *</label><input type="text" name="firstName" required placeholder="John"/></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" name="lastName" required placeholder="Smith"/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone Number *</label><input type="tel" name="phone" required placeholder="(555) 000-0000"/></div>
+          <div class="form-group"><label>Email Address *</label><input type="email" name="email" required placeholder="you@email.com"/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Date of Birth</label><input type="date" name="dob"/></div>
+          <div class="form-group"><label>State</label>
+            <select name="state">
+              <option value="">Select your state…</option>
+              <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Coverage Interest *</label>
+          <div class="coverage-checkboxes">
+            <label class="iul-opt"><input type="checkbox" name="coverage" value="IUL"/> 📈 IUL (Indexed Universal Life)</label>
+            <label class="iul-opt"><input type="checkbox" name="coverage" value="Annuity"/> 🏦 Annuity</label>
+            <label><input type="checkbox" name="coverage" value="Life Insurance"/> ❤️ Life Insurance</label>
+            <label><input type="checkbox" name="coverage" value="Whole Life"/> 🛡 Whole Life</label>
+            <label><input type="checkbox" name="coverage" value="Term Life"/> 📋 Term Life</label>
+            <label><input type="checkbox" name="coverage" value="Mortgage Protection"/> 🏠 Mortgage Protection</label>
+            <label><input type="checkbox" name="coverage" value="Income Replacement"/> 💼 Income Replacement</label>
+            <label><input type="checkbox" name="coverage" value="Final Expense"/> 🕊️ Final Expense</label>
+            <label class="new-opt"><input type="checkbox" name="coverage" value="Dental Insurance"/> 🦷 Dental Insurance</label>
+            <label class="new-opt"><input type="checkbox" name="coverage" value="Health Insurance"/> 🏥 Health Insurance</label>
+          </div>
+        </div>
+        <div class="form-group"><label>Additional Notes</label><textarea name="message" placeholder="Tell us anything helpful — budget, health concerns, dependents…"></textarea></div>
+        <button type="submit" class="form-submit">Request My Free Quote →</button>
+        <p class="form-privacy">🔒 Your information is private and never shared or sold.</p>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div class="check">✅</div>
+        <h4>Message Received!</h4>
+        <p>An advisor will be in touch within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="logo">EverTrust <span>Protection</span></div><p>Independent insurance advisors helping American families protect what they love. Licensed in all 50 states. Representing 20+ top-rated carriers.</p></div>
+    <div class="footer-col"><h5>Coverage</h5><ul>
+      <li><a href="intake.html">IUL</a></li>
+      <li><a href="intake.html">Annuities</a></li>
+      <li><a href="#products">Life Insurance</a></li>
+      <li><a href="#products">Mortgage Protection</a></li>
+      <li><a href="#products">Final Expense</a></li>
+      <li><a href="#products">Dental &amp; Health</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="#why">About Us</a></li><li><a href="#process">How It Works</a></li><li><a href="#testimonials">Client Stories</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:+18436333464">(843) 633-3464</a></li><li><a href="https://calendly.com/myinsuranceplan2013/30min" target="_blank">Book a Call</a></li><li><a href="intake.html">Get a Free Quote</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 EverTrust Protection. All rights reserved.</p>
+    <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Licenses</a></div>
+  </div>
+</footer>
+
+<script>
+  var GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/1kNl0a3LeezFrr6iATDH/webhook-trigger/76c95cd2-7e87-42f8-9fff-7b2eb3167180';
+  var form = document.getElementById('quoteForm');
+  var success = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    var coverages = [...form.querySelectorAll('input[name="coverage"]:checked')].map(function(c){ return c.value; });
+    data.delete('coverage');
+    data.append('coverage', coverages.join(', ') || 'Not specified');
+
+    var ghlData = Object.fromEntries(data.entries());
+    ghlData.source = 'EverTrust Landing Page';
+    fetch(GHL_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(ghlData),
+      mode: 'no-cors'
+    });
+
+    try {
+      var res = await fetch('https://formspree.io/f/mzdjvzlo', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again or call us directly.');
+      }
+    } catch(err) {
+      alert('Network error. Please call us at (843) 633-3464.');
+    }
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
